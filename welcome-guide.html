@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Welcome | Brainnovation Network</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    /* Brainnovation Brand */
+    --navy:       #1B365D;
+    --blue:       #407EC9;
+    --teal:       #6DCDB8;
+    --coral:      #E06287;
+
+    /* Supporting neutrals */
+    --navy-dark:  #12253f;
+    --navy-mid:   #244878;
+    --teal-light: #A8E8DC;
+    --teal-pale:  #E0F5F1;
+    --coral-pale: #FAEAEF;
+    --cream:      #F8F9FC;
+    --warm-white: #FDFEFF;
+    --charcoal:   #1A2030;
+    --mid-grey:   #5A6378;
+    --light-grey: #E8ECF4;
+    --linen:      #EEF1F8;
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'DM Sans',sans-serif; background:var(--cream); color:var(--charcoal); overflow-x:hidden; }
+
+  /* ── HERO ── */
+  .hero {
+    min-height:100vh;
+    background: linear-gradient(150deg, var(--navy-dark) 0%, var(--navy) 45%, var(--navy-mid) 100%);
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    position:relative; overflow:hidden; padding:60px 24px; text-align:center;
+  }
+  .hero::before {
+    content:''; position:absolute; inset:0;
+    background:
+      radial-gradient(ellipse 70% 50% at 20% 80%, rgba(109,205,184,0.18) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 60% at 85% 15%, rgba(64,126,201,0.25) 0%, transparent 55%),
+      radial-gradient(ellipse 40% 40% at 50% 100%, rgba(224,98,135,0.12) 0%, transparent 60%);
+  }
+  /* teal arc decoration */
+  .hero::after {
+    content:''; position:absolute;
+    bottom:-120px; right:-120px;
+    width:420px; height:420px;
+    border:1.5px solid rgba(109,205,184,0.2);
+    border-radius:50%;
+    pointer-events:none;
+  }
+
+  .hero-wordmark {
+    font-size:11px; font-weight:500; letter-spacing:4px; text-transform:uppercase;
+    color:var(--teal); opacity:.9; margin-bottom:40px;
+    position:relative; z-index:1;
+    animation:fadeUp .8s ease both;
+    display:flex; align-items:center; gap:14px;
+  }
+  .hero-wordmark::before,.hero-wordmark::after {
+    content:''; display:inline-block; width:28px; height:1px; background:var(--teal); opacity:.5;
+  }
+
+  .hero h1 {
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(40px,6.5vw,76px); font-weight:300;
+    color:#fff; line-height:1.12; max-width:840px;
+    position:relative; z-index:1;
+    animation:fadeUp .8s .15s ease both;
+  }
+  .hero h1 em { font-style:italic; color:var(--teal); }
+
+  .hero-sub {
+    font-size:clamp(16px,2vw,19px); font-weight:300;
+    color:rgba(255,255,255,0.65);
+    max-width:540px; line-height:1.8; margin-top:26px;
+    position:relative; z-index:1;
+    animation:fadeUp .8s .3s ease both;
+  }
+
+  .hero-divider {
+    width:56px; height:2px;
+    background:linear-gradient(90deg, var(--teal), var(--blue));
+    margin:38px auto; position:relative; z-index:1;
+    animation:expand 1s .5s ease both; border-radius:2px;
+  }
+
+  .hero-scroll {
+    position:relative; z-index:1; animation:fadeUp .8s .6s ease both;
+    display:flex; flex-direction:column; align-items:center; gap:8px;
+    cursor:pointer; color:rgba(255,255,255,0.35); font-size:11px;
+    letter-spacing:2.5px; text-transform:uppercase; text-decoration:none; transition:color .3s;
+  }
+  .hero-scroll:hover { color:var(--teal); }
+  .scroll-arrow {
+    width:20px; height:20px;
+    border-right:1.5px solid currentColor; border-bottom:1.5px solid currentColor;
+    transform:rotate(45deg); animation:bounce 2s infinite; margin-top:4px;
+  }
+
+  /* ── WELCOME ── */
+  .welcome { background:var(--warm-white); padding:100px 24px; position:relative; overflow:hidden; }
+  .welcome::before {
+    content:''; position:absolute; top:-80px; right:-80px;
+    width:320px; height:320px;
+    background:radial-gradient(circle, var(--teal-pale) 0%, transparent 70%);
+    opacity:.7;
+  }
+  .container { max-width:920px; margin:0 auto; }
+
+  .ws-layout { display:grid; grid-template-columns:1fr 1.15fr; gap:80px; align-items:center; }
+  @media(max-width:700px){ .ws-layout { grid-template-columns:1fr; gap:48px; } }
+
+  .ws-visual { position:relative; }
+
+  .ws-graphic {
+    width:100%; aspect-ratio:1;
+    background:linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 50%, var(--blue) 100%);
+    border-radius:50% 12px 50% 12px;
+    display:flex; align-items:center; justify-content:center;
+    position:relative; overflow:hidden;
+  }
+  .ws-graphic::before {
+    content:''; position:absolute; bottom:0; left:0; right:0; height:40%;
+    background:linear-gradient(to top, rgba(109,205,184,0.2), transparent);
+  }
+  .ws-graphic-inner { text-align:center; padding:44px; position:relative; z-index:1; }
+  .ws-graphic-inner span {
+    display:block; font-family:'Cormorant Garamond',serif;
+    font-size:17px; font-style:italic; color:rgba(255,255,255,0.85); line-height:1.75;
+  }
+  .ws-graphic-inner span em { color:var(--teal); font-style:normal; }
+
+  .ws-stat {
+    position:absolute; bottom:-16px; left:-16px;
+    background:var(--coral); color:white;
+    padding:16px 22px; border-radius:10px;
+    box-shadow:0 8px 24px rgba(224,98,135,0.35);
+  }
+  .ws-stat strong {
+    display:block; font-family:'Cormorant Garamond',serif;
+    font-size:34px; font-weight:400; line-height:1;
+  }
+  .ws-stat span { font-size:11px; letter-spacing:1px; opacity:.85; text-transform:uppercase; }
+
+  .ws-text .eyebrow {
+    font-size:11px; font-weight:500; letter-spacing:3px;
+    text-transform:uppercase; color:var(--blue); margin-bottom:18px;
+  }
+  .ws-text h2 {
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(28px,4vw,46px); font-weight:400;
+    line-height:1.2; color:var(--charcoal); margin-bottom:26px;
+  }
+  .ws-text h2 em { font-style:italic; color:var(--navy); }
+  .ws-text p { font-size:15.5px; line-height:1.88; color:var(--mid-grey); margin-bottom:18px; }
+  .ws-text p strong { color:var(--charcoal); font-weight:500; }
+
+  /* ── MIRROR ── */
+  .mirror {
+    background:linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 60%, var(--navy-mid) 100%);
+    padding:100px 24px; position:relative; overflow:hidden;
+  }
+  .mirror::before {
+    content:''; position:absolute; bottom:0; left:0; width:100%; height:60%;
+    background:radial-gradient(ellipse 70% 80% at 20% 100%, rgba(109,205,184,0.12) 0%, transparent 65%);
+  }
+  .mirror::after {
+    content:''; position:absolute; top:-100px; right:-100px;
+    width:350px; height:350px;
+    border:1px solid rgba(64,126,201,0.15); border-radius:50%;
+  }
+  .mirror-inner { max-width:740px; margin:0 auto; text-align:center; position:relative; z-index:1; }
+  .quote-mark {
+    font-family:'Cormorant Garamond',serif; font-size:130px;
+    color:var(--teal); opacity:.18; line-height:.65; display:block; margin-bottom:20px;
+  }
+  .mirror blockquote {
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(22px,3.5vw,37px); font-weight:300; font-style:italic;
+    color:rgba(255,255,255,0.9); line-height:1.55; margin-bottom:36px;
+  }
+  .mirror blockquote strong { color:var(--teal); font-style:normal; font-weight:400; }
+  .mirror-byline {
+    font-size:11px; letter-spacing:3px; text-transform:uppercase;
+    color:var(--blue); font-weight:500;
+  }
+
+  /* ── CHECKLIST ── */
+  .checklist-section { background:var(--cream); padding:100px 24px; }
+  .section-header { text-align:center; margin-bottom:60px; }
+  .section-header .eyebrow {
+    font-size:11px; font-weight:500; letter-spacing:3px;
+    text-transform:uppercase; color:var(--blue); margin-bottom:16px;
+  }
+  .section-header h2 {
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(28px,4vw,50px); font-weight:400;
+    line-height:1.2; color:var(--charcoal); max-width:640px; margin:0 auto;
+  }
+  .section-header h2 em { font-style:italic; color:var(--navy); }
+
+  .checklist-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; max-width:880px; margin:0 auto; }
+  @media(max-width:640px){ .checklist-grid { grid-template-columns:1fr; } }
+
+  .check-item {
+    background:var(--warm-white); border:1.5px solid var(--linen);
+    border-radius:12px; padding:20px 22px;
+    display:flex; align-items:flex-start; gap:14px;
+    cursor:pointer; transition:all .3s ease; position:relative; overflow:hidden;
+  }
+  .check-item::before {
+    content:''; position:absolute; inset:0;
+    background:linear-gradient(135deg, var(--teal-pale), transparent);
+    opacity:0; transition:opacity .3s;
+  }
+  .check-item:hover::before { opacity:1; }
+  .check-item:hover { border-color:var(--teal); transform:translateY(-2px); box-shadow:0 8px 24px rgba(109,205,184,0.18); }
+  .check-item.checked { border-color:var(--teal); background:linear-gradient(135deg,rgba(109,205,184,0.07),var(--warm-white)); }
+
+  .checkbox {
+    width:22px; height:22px; border:1.5px solid var(--linen); border-radius:50%;
+    flex-shrink:0; margin-top:2px; display:flex; align-items:center; justify-content:center;
+    transition:all .3s; background:white; position:relative; z-index:1;
+  }
+  .check-item.checked .checkbox { background:var(--teal); border-color:var(--teal); }
+  .checkbox svg { opacity:0; transition:opacity .3s; }
+  .check-item.checked .checkbox svg { opacity:1; }
+  .check-text { position:relative; z-index:1; }
+  .check-text strong { display:block; font-size:14px; font-weight:500; color:var(--charcoal); margin-bottom:5px; transition:all .3s; }
+  .check-text span { font-size:13px; color:var(--mid-grey); line-height:1.55; }
+  .check-item.checked .check-text strong { text-decoration:line-through; text-decoration-color:var(--teal); color:var(--mid-grey); }
+
+  .progress-wrap { max-width:880px; margin:28px auto 0; }
+  .progress-bar-bg { background:var(--linen); border-radius:4px; height:4px; overflow:hidden; }
+  .progress-bar-fill {
+    height:100%;
+    background:linear-gradient(90deg, var(--teal), var(--blue));
+    border-radius:4px; transition:width .5s ease; width:0%;
+  }
+  .progress-label { font-size:12px; color:var(--mid-grey); letter-spacing:1px; text-align:right; margin-top:10px; }
+
+  /* ── PILLARS ── */
+  .pillars { background:var(--linen); padding:100px 24px; }
+  .pillars-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; max-width:980px; margin:0 auto; }
+  @media(max-width:768px){ .pillars-grid { grid-template-columns:1fr 1fr; } }
+  @media(max-width:480px){ .pillars-grid { grid-template-columns:1fr; } }
+
+  .pillar-card {
+    background:var(--warm-white); border-radius:16px; padding:32px 26px;
+    position:relative; overflow:hidden;
+    transition:transform .3s ease, box-shadow .3s ease;
+    border-top:3px solid transparent;
+  }
+  .pillar-card:nth-child(1) { border-top-color:var(--navy); }
+  .pillar-card:nth-child(2) { border-top-color:var(--blue); }
+  .pillar-card:nth-child(3) { border-top-color:var(--teal); }
+  .pillar-card:nth-child(4) { border-top-color:var(--coral); }
+  .pillar-card:nth-child(5) { border-top-color:var(--blue); }
+  .pillar-card:nth-child(6) { border-top-color:var(--navy); }
+  .pillar-card:hover { transform:translateY(-4px); box-shadow:0 16px 40px rgba(27,54,93,0.12); }
+
+  .pillar-num {
+    font-family:'Cormorant Garamond',serif; font-size:64px; font-weight:300;
+    color:var(--linen); position:absolute; top:-8px; right:14px; line-height:1; pointer-events:none;
+  }
+  .pillar-icon {
+    width:44px; height:44px; border-radius:10px;
+    display:flex; align-items:center; justify-content:center; margin-bottom:16px; font-size:21px;
+  }
+  .pillar-card:nth-child(1) .pillar-icon { background:rgba(27,54,93,0.1); }
+  .pillar-card:nth-child(2) .pillar-icon { background:rgba(64,126,201,0.12); }
+  .pillar-card:nth-child(3) .pillar-icon { background:rgba(109,205,184,0.15); }
+  .pillar-card:nth-child(4) .pillar-icon { background:rgba(224,98,135,0.12); }
+  .pillar-card:nth-child(5) .pillar-icon { background:rgba(64,126,201,0.12); }
+  .pillar-card:nth-child(6) .pillar-icon { background:rgba(27,54,93,0.1); }
+
+  .pillar-card h3 { font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:500; color:var(--charcoal); margin-bottom:10px; line-height:1.25; }
+  .pillar-card p { font-size:13.5px; color:var(--mid-grey); line-height:1.72; }
+  .pillar-tag { display:inline-block; margin-top:14px; font-size:10px; font-weight:500; letter-spacing:2px; text-transform:uppercase; }
+  .pillar-card:nth-child(1) .pillar-tag { color:var(--navy); }
+  .pillar-card:nth-child(2) .pillar-tag { color:var(--blue); }
+  .pillar-card:nth-child(3) .pillar-tag { color:var(--teal); }
+  .pillar-card:nth-child(4) .pillar-tag { color:var(--coral); }
+  .pillar-card:nth-child(5) .pillar-tag { color:var(--blue); }
+  .pillar-card:nth-child(6) .pillar-tag { color:var(--navy); }
+
+  /* ── ACCORDION ── */
+  .accordion-section { background:var(--warm-white); padding:100px 24px; }
+  .accordion { max-width:780px; margin:0 auto; }
+  .accord-item { border-bottom:1px solid var(--linen); overflow:hidden; }
+  .accord-header { display:flex; align-items:center; justify-content:space-between; padding:26px 0; cursor:pointer; gap:20px; }
+  .accord-header:hover .accord-title { color:var(--blue); }
+  .accord-title {
+    font-family:'Cormorant Garamond',serif; font-size:clamp(18px,2.5vw,22px);
+    font-weight:500; color:var(--charcoal); transition:color .3s; line-height:1.3;
+  }
+  .accord-arrow {
+    width:28px; height:28px; border:1.5px solid var(--linen); border-radius:50%;
+    display:flex; align-items:center; justify-content:center; flex-shrink:0;
+    transition:all .3s; color:var(--blue);
+  }
+  .accord-item.open .accord-arrow { background:var(--blue); border-color:var(--blue); color:white; transform:rotate(45deg); }
+  .accord-body { max-height:0; overflow:hidden; transition:max-height .5s cubic-bezier(0,1,0,1); }
+  .accord-item.open .accord-body { max-height:600px; transition:max-height .6s ease; }
+  .accord-content { padding:0 0 28px; font-size:15px; line-height:1.85; color:var(--mid-grey); }
+  .accord-content p { margin-bottom:14px; }
+  .accord-content p:last-child { margin-bottom:0; }
+  .accord-content strong { color:var(--charcoal); font-weight:500; }
+  .accord-highlight {
+    background:var(--teal-pale); border-left:3px solid var(--teal);
+    padding:14px 18px; border-radius:0 8px 8px 0;
+    margin:16px 0; font-style:italic; color:var(--navy);
+    font-size:14.5px; line-height:1.65;
+  }
+
+  /* ── REFLECTION ── */
+  .reflection {
+    background:linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 100%);
+    padding:100px 24px; position:relative; overflow:hidden;
+  }
+  .reflection::before {
+    content:''; position:absolute; top:0; right:0; width:50%; height:100%;
+    background:radial-gradient(ellipse 80% 60% at 100% 50%, rgba(109,205,184,0.1) 0%, transparent 65%);
+  }
+  .reflection-inner { max-width:720px; margin:0 auto; text-align:center; position:relative; z-index:1; }
+  .reflection-inner .eyebrow { font-size:11px; font-weight:500; letter-spacing:3px; text-transform:uppercase; color:var(--teal); margin-bottom:18px; }
+  .reflection-inner h2 {
+    font-family:'Cormorant Garamond',serif; font-size:clamp(28px,4vw,46px);
+    font-weight:400; color:#fff; line-height:1.25; margin-bottom:20px;
+  }
+  .reflection-inner h2 em { font-style:italic; color:var(--teal); }
+  .reflection-inner > p { font-size:16px; color:rgba(255,255,255,0.62); line-height:1.85; margin-bottom:52px; max-width:540px; margin-left:auto; margin-right:auto; }
+  .journal-prompts { display:flex; flex-direction:column; gap:14px; text-align:left; }
+  .prompt-card {
+    background:rgba(255,255,255,0.07); backdrop-filter:blur(12px);
+    border:1px solid rgba(109,205,184,0.25); border-radius:12px;
+    padding:22px 26px; display:flex; align-items:flex-start; gap:16px; transition:all .3s;
+  }
+  .prompt-card:hover { background:rgba(255,255,255,0.12); transform:translateX(4px); border-color:rgba(109,205,184,0.5); }
+  .prompt-num {
+    font-family:'Cormorant Garamond',serif; font-size:30px; font-weight:300;
+    color:var(--teal); line-height:1; flex-shrink:0; margin-top:-2px;
+  }
+  .prompt-text { font-family:'Cormorant Garamond',serif; font-size:18px; font-style:italic; color:rgba(255,255,255,0.85); line-height:1.6; }
+
+  /* ── AFFIRMATIONS ── */
+  .affirmation-section {
+    background:var(--coral); padding:80px 24px; text-align:center; position:relative; overflow:hidden;
+  }
+  .affirmation-section::before {
+    content:''; position:absolute; inset:0;
+    background:radial-gradient(ellipse 60% 80% at 50% 50%, rgba(255,255,255,0.08) 0%, transparent 70%);
+  }
+  .affirmation-label { font-size:10px; letter-spacing:4px; text-transform:uppercase; color:rgba(255,255,255,0.7); margin-bottom:28px; position:relative; z-index:1; }
+  .affirmation-text {
+    font-family:'Cormorant Garamond',serif; font-size:clamp(22px,4vw,40px);
+    font-weight:300; font-style:italic; color:#fff; max-width:700px;
+    margin:0 auto 32px; line-height:1.45; position:relative; z-index:1;
+    min-height:110px; display:flex; align-items:center; justify-content:center;
+    transition:opacity .5s ease;
+  }
+  .affirmation-dots { display:flex; gap:8px; justify-content:center; position:relative; z-index:1; }
+  .affirmation-dot { width:6px; height:6px; border-radius:50%; background:rgba(255,255,255,0.3); cursor:pointer; transition:all .3s; border:none; }
+  .affirmation-dot.active { background:white; width:20px; border-radius:3px; }
+
+  /* ── CTA ── */
+  .cta { background:var(--cream); padding:100px 24px; }
+  .cta-inner { max-width:780px; margin:0 auto; text-align:center; }
+  .cta-inner h2 { font-family:'Cormorant Garamond',serif; font-size:clamp(32px,4.5vw,54px); font-weight:400; line-height:1.18; color:var(--charcoal); margin-bottom:20px; }
+  .cta-inner h2 em { font-style:italic; color:var(--navy); }
+  .cta-inner > p { font-size:16px; color:var(--mid-grey); line-height:1.85; max-width:560px; margin:0 auto 52px; }
+  .cta-cards { display:grid; grid-template-columns:1fr 1fr 1fr; gap:18px; margin-bottom:44px; }
+  @media(max-width:640px){ .cta-cards { grid-template-columns:1fr; } }
+
+  .cta-card {
+    background:var(--warm-white); border:1.5px solid var(--linen);
+    border-radius:16px; padding:30px 22px; text-align:center;
+    transition:all .3s; text-decoration:none; display:block;
+    border-bottom:3px solid transparent;
+  }
+  .cta-card:nth-child(1) { border-bottom-color:var(--navy); }
+  .cta-card:nth-child(2) { border-bottom-color:var(--teal); }
+  .cta-card:nth-child(3) { border-bottom-color:var(--blue); }
+  .cta-card:hover { transform:translateY(-4px); box-shadow:0 12px 32px rgba(27,54,93,0.12); border-color:var(--blue); }
+  .cta-card-icon { font-size:30px; margin-bottom:14px; display:block; }
+  .cta-card h3 { font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:500; color:var(--charcoal); margin-bottom:8px; }
+  .cta-card p { font-size:13px; color:var(--mid-grey); line-height:1.65; margin:0; }
+
+  .btn-primary {
+    display:inline-block;
+    background:linear-gradient(135deg, var(--blue) 0%, var(--navy) 100%);
+    color:white; font-family:'DM Sans',sans-serif; font-size:13px; font-weight:500;
+    letter-spacing:2px; text-transform:uppercase; padding:18px 56px; border-radius:3px;
+    text-decoration:none; transition:all .3s; border:none; cursor:pointer;
+    box-shadow:0 4px 20px rgba(64,126,201,0.35);
+  }
+  .btn-primary:hover { transform:translateY(-2px); box-shadow:0 8px 32px rgba(64,126,201,0.45); }
+
+  /* ── FOOTER ── */
+  .footer-note {
+    background:var(--navy-dark); padding:64px 24px; text-align:center;
+    border-top:2px solid var(--teal);
+  }
+  .footer-note p {
+    font-family:'Cormorant Garamond',serif; font-size:20px; font-style:italic;
+    font-weight:300; color:rgba(255,255,255,0.6); max-width:580px;
+    margin:0 auto 18px; line-height:1.65;
+  }
+  .footer-note span { font-size:11px; letter-spacing:3px; text-transform:uppercase; color:var(--teal); }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp { from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:translateY(0);} }
+  @keyframes expand { from{width:0;opacity:0;}to{width:56px;opacity:1;} }
+  @keyframes bounce { 0%,100%{transform:rotate(45deg) translateY(0);}50%{transform:rotate(45deg) translateY(6px);} }
+
+  .fade-in-up { opacity:0; transform:translateY(28px); transition:opacity .7s ease,transform .7s ease; }
+  .fade-in-up.visible { opacity:1; transform:translateY(0); }
+  .stagger>*:nth-child(1){transition-delay:0s;}
+  .stagger>*:nth-child(2){transition-delay:.1s;}
+  .stagger>*:nth-child(3){transition-delay:.2s;}
+  .stagger>*:nth-child(4){transition-delay:.3s;}
+  .stagger>*:nth-child(5){transition-delay:.4s;}
+  .stagger>*:nth-child(6){transition-delay:.5s;}
+
+  /* ── NAV DOTS ── */
+  .nav-dots { position:fixed; right:22px; top:50%; transform:translateY(-50%); display:flex; flex-direction:column; gap:10px; z-index:100; }
+  .nav-dot { width:6px; height:6px; background:rgba(27,54,93,0.2); border-radius:50%; cursor:pointer; transition:all .3s; border:none; }
+  .nav-dot.active { background:var(--blue); height:20px; border-radius:3px; }
+  @media(max-width:768px){ .nav-dots { display:none; } }
+</style>
+</head>
+<body>
+
+<div class="nav-dots" id="navDots"></div>
+
+<!-- ── HERO ── -->
+<section class="hero" id="section-0">
+  <div class="hero-wordmark">Brainnovation Network</div>
+  <h1>Your Brain Didn't Break.<br>It's <em>Changing.</em></h1>
+  <p class="hero-sub">This community is for women who are done being told it's just stress. You're not imagining it. And you don't have to figure it out alone.</p>
+  <div class="hero-divider"></div>
+  <a href="#section-1" class="hero-scroll">Begin here<div class="scroll-arrow"></div></a>
+</section>
+
+<!-- ── WELCOME ── -->
+<section class="welcome" id="section-1">
+  <div class="container">
+    <div class="ws-layout">
+      <div class="ws-visual fade-in-up">
+        <div class="ws-graphic">
+          <div class="ws-graphic-inner">
+            <span>You're not losing<br>your mind.<br>You're losing<br><em>estrogen</em> — and<br>your brain feels<br>every bit of it.</span>
+          </div>
+        </div>
+        <div class="ws-stat">
+          <strong>1 in 3</strong>
+          <span>women report<br>cognitive symptoms</span>
+        </div>
+      </div>
+      <div class="ws-text fade-in-up">
+        <p class="eyebrow">You're in the right place</p>
+        <h2>This is the space<br>you've been <em>looking for.</em></h2>
+        <p>Brain fog so thick you can't find words mid-sentence. Anxiety that showed up in your 40s out of nowhere. Waking at 3am, heart pounding, completely baffled. And doctors who shrug and say "that's just stress."</p>
+        <p><strong>None of that is in your head.</strong> Well — it is, technically. But not the way they mean it. What's happening to you is real, it's documented neuroscience, and it deserves a whole lot more than a shrug.</p>
+        <p>The Brainnovation Network was built because the healthcare system dropped the ball on women at exactly this crossroads. Consider this the community that picks it back up.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── MIRROR ── -->
+<section class="mirror" id="section-2">
+  <div class="mirror-inner fade-in-up">
+    <span class="quote-mark">"</span>
+    <blockquote>This isn't just a transition.<br>This is <strong>alchemy.</strong> An unfolding. A shedding.<br>A reclaiming of everything you are.</blockquote>
+    <p class="mirror-byline">Brainnovation Network · The Age of Unapologetic Wisdom</p>
+  </div>
+</section>
+
+<!-- ── CHECKLIST ── -->
+<section class="checklist-section" id="section-3">
+  <div class="section-header fade-in-up">
+    <p class="eyebrow">Sound familiar?</p>
+    <h2>Check the ones that <em>hit home.</em></h2>
+  </div>
+  <div class="checklist-grid stagger" id="checklist">
+    <div class="check-item" onclick="toggleCheck(this)">
+      <div class="checkbox"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="check-text"><strong>You walk into rooms and forget why you're there</strong><span>The word is right there. And then it just... isn't. And nobody takes it seriously.</span></div>
+    </div>
+    <div class="check-item" onclick="toggleCheck(this)">
+      <div class="checkbox"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="check-text"><strong>Anxiety showed up out of nowhere in your 40s</strong><span>You've never been an anxious person. Now your nervous system just... hums. All the time.</span></div>
+    </div>
+    <div class="check-item" onclick="toggleCheck(this)">
+      <div class="checkbox"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="check-text"><strong>Your doctor said it's probably just stress</strong><span>You left that appointment more frustrated than when you walked in. Fair.</span></div>
+    </div>
+    <div class="check-item" onclick="toggleCheck(this)">
+      <div class="checkbox"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="check-text"><strong>Sleep used to be your superpower</strong><span>Wide awake at 3am, heart going, no idea why. You used to sleep through anything.</span></div>
+    </div>
+    <div class="check-item" onclick="toggleCheck(this)">
+      <div class="checkbox"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="check-text"><strong>You feel like a stranger in your own body</strong><span>Your moods, your reactions, your energy — none of it feels like the woman you know.</span></div>
+    </div>
+    <div class="check-item" onclick="toggleCheck(this)">
+      <div class="checkbox"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="check-text"><strong>You're done white-knuckling through it</strong><span>You want real answers, real community, and a path forward that actually makes sense.</span></div>
+    </div>
+  </div>
+  <div class="progress-wrap">
+    <div class="progress-bar-bg"><div class="progress-bar-fill" id="progressFill"></div></div>
+    <p class="progress-label" id="progressLabel">0 of 6 checked</p>
+  </div>
+</section>
+
+<!-- ── PILLARS ── -->
+<section class="pillars" id="section-4">
+  <div class="section-header fade-in-up">
+    <p class="eyebrow">What you'll explore here</p>
+    <h2>Six areas where <em>real change happens</em></h2>
+  </div>
+  <div class="pillars-grid stagger">
+    <div class="pillar-card fade-in-up"><span class="pillar-num">01</span><div class="pillar-icon">🧬</div><h3>Hormone Literacy</h3><p>What estrogen, progesterone, and testosterone actually do in your body. And what happens to your brain when they start to shift.</p><span class="pillar-tag">Start here →</span></div>
+    <div class="pillar-card fade-in-up"><span class="pillar-num">02</span><div class="pillar-icon">🧠</div><h3>Nervous System & Brain Health</h3><p>Brain fog isn't a personality flaw. It's neuroscience. We'll explain exactly what's happening and why it's fixable.</p><span class="pillar-tag">Get clear →</span></div>
+    <div class="pillar-card fade-in-up"><span class="pillar-num">03</span><div class="pillar-icon">💪</div><h3>Strength & Movement</h3><p>Not for aesthetics. For your bones, your brain, and your nervous system. Movement is medicine here — full stop.</p><span class="pillar-tag">Get strong →</span></div>
+    <div class="pillar-card fade-in-up"><span class="pillar-num">04</span><div class="pillar-icon">🌿</div><h3>Nutrition & Lifestyle</h3><p>What you eat, how you sleep, how you manage stress. These aren't wellness buzzwords. They're literally the levers that move the needle.</p><span class="pillar-tag">Get fuelled →</span></div>
+    <div class="pillar-card fade-in-up"><span class="pillar-num">05</span><div class="pillar-icon">🩺</div><h3>Medical Self-Advocacy</h3><p>How to walk into a doctor's appointment prepared, know what to push back on, and stop leaving feeling dismissed.</p><span class="pillar-tag">Speak up →</span></div>
+    <div class="pillar-card fade-in-up"><span class="pillar-num">06</span><div class="pillar-icon">🏛️</div><h3>Work & Systemic Advocacy</h3><p>For the high-achieving women in demanding environments who refuse to let this transition quietly derail their careers.</p><span class="pillar-tag">Lead on →</span></div>
+  </div>
+</section>
+
+<!-- ── ACCORDION ── -->
+<section class="accordion-section" id="section-5">
+  <div class="section-header fade-in-up">
+    <p class="eyebrow">The questions you've been sitting on</p>
+    <h2>Answered honestly, <em>without the runaround</em></h2>
+  </div>
+  <div class="accordion fade-in-up">
+
+    <div class="accord-item">
+      <div class="accord-header" onclick="toggleAccord(this)">
+        <span class="accord-title">Am I forgetting everything because of dementia?</span>
+        <div class="accord-arrow"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 1V11M1 6H11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+      </div>
+      <div class="accord-body"><div class="accord-content">
+        <p>No. You're not. What you're experiencing is the direct effect of estrogen fluctuation on your brain, and there's a lot of solid neuroscience to back that up.</p>
+        <div class="accord-highlight">Estrogen is a neuroprotective hormone. When it fluctuates in perimenopause, your memory, cognitive clarity, and executive function fluctuate with it. That's not weakness. That's biology.</div>
+        <p>Your brain has estrogen receptors in its key memory and executive centres — the hippocampus, the prefrontal cortex. When estrogen drops, those areas lose some of their fuel. It's temporary. It's treatable. And it deserves a better answer than "you're probably just stressed."</p>
+      </div></div>
+    </div>
+
+    <div class="accord-item">
+      <div class="accord-header" onclick="toggleAccord(this)">
+        <span class="accord-title">Why am I suddenly so anxious when I never used to be?</span>
+        <div class="accord-arrow"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 1V11M1 6H11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+      </div>
+      <div class="accord-body"><div class="accord-content">
+        <p>Honestly, this one catches a lot of women completely off guard. If you've never been anxious in your life and now your nervous system is constantly buzzing — that's not a character shift. That's hormones.</p>
+        <p>Progesterone has a direct calming effect on your nervous system. As it declines, that built-in regulation starts to waver. At the same time, fluctuating estrogen affects serotonin and GABA — the neurotransmitters that keep anxiety in check. Take those offline and your body goes into alert mode.</p>
+        <div class="accord-highlight">This isn't you falling apart. It's your nervous system navigating a hormonal landscape it hasn't been through before. There's a difference.</div>
+        <p>The good news: nervous system regulation tools — breathwork, yoga nidra, targeted movement, vagus nerve work — aren't just nice-to-haves. They're medicine. You'll find all of them here.</p>
+      </div></div>
+    </div>
+
+    <div class="accord-item">
+      <div class="accord-header" onclick="toggleAccord(this)">
+        <span class="accord-title">Okay but what actually is perimenopause? When does it start?</span>
+        <div class="accord-arrow"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 1V11M1 6H11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+      </div>
+      <div class="accord-body"><div class="accord-content">
+        <p>Perimenopause is the transition phase — the years leading up to your final period, when your ovaries gradually start producing less estrogen and progesterone. Most women hit it somewhere in their early-to-mid 40s, though some start in their late 30s.</p>
+        <p>The thing that trips people up? It can last anywhere from <strong>2 to 14 years.</strong> Menopause itself is just one day — technically the 12-month mark after your last period. Everything before that is perimenopause.</p>
+        <div class="accord-highlight">Here's what most women don't realize: your brain can start responding to shifting estrogen levels well before your periods change at all. That's why the cognitive stuff often hits first, and nobody connects the dots.</div>
+        <p>So if you're in your early 40s, cycles still regular, but feeling like something is off in your brain — trust that instinct. You're probably right.</p>
+      </div></div>
+    </div>
+
+    <div class="accord-item">
+      <div class="accord-header" onclick="toggleAccord(this)">
+        <span class="accord-title">Why won't my doctor just take this seriously?</span>
+        <div class="accord-arrow"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 1V11M1 6H11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+      </div>
+      <div class="accord-body"><div class="accord-content">
+        <p>This one makes us genuinely angry, because it happens constantly and it needs to stop.</p>
+        <p>The medical dismissal of women's cognitive complaints in their 40s and 50s is well-documented. Research consistently shows women's symptoms are more likely to be attributed to anxiety or stress than to hormones. And many healthcare providers receive as little as one hour of menopause education across their entire training.</p>
+        <div class="accord-highlight">You're not too sensitive. You're not dramatic. You've been let down by a system that wasn't built with you in mind. That's not your fault and it's not something you should just accept.</div>
+        <p>Part of what we do here is give you the language, the evidence, and the confidence to go back into that room and advocate hard for yourself. You deserve a provider who actually takes you seriously. We'll help you get there.</p>
+      </div></div>
+    </div>
+
+    <div class="accord-item">
+      <div class="accord-header" onclick="toggleAccord(this)">
+        <span class="accord-title">Can anything actually be done about the brain fog?</span>
+        <div class="accord-arrow"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 1V11M1 6H11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+      </div>
+      <div class="accord-body"><div class="accord-content">
+        <p>Yes. Genuinely, yes. Not crossword-puzzles yes. Evidence-backed, neuroscience-informed yes.</p>
+        <p>Resistance training increases BDNF — basically the brain's own growth hormone. Getting your sleep right (which is more complicated during perimenopause, but not impossible) lets your brain clear metabolic waste the way it's supposed to. Anti-inflammatory food reduces neuroinflammation. Managing your stress load reduces the cortisol that's competing with your estrogen receptors.</p>
+        <div class="accord-highlight">Knowledge is power. Actually doing something with it is where the transformation happens.</div>
+        <p>That's exactly what you'll find inside the Network. Not a list of overwhelming things to do, but an integrated approach to supporting your brain through every stage of this. Practical, liveable, and built around how women actually function.</p>
+      </div></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── REFLECTION ── -->
+<section class="reflection" id="section-6">
+  <div class="reflection-inner">
+    <div class="fade-in-up">
+      <p class="eyebrow">Your first practice</p>
+      <h2>Before you dive in,<br><em>sit with this.</em></h2>
+      <p>The women who get the most out of this community are the ones who come in honest with themselves. Take five minutes with these. Journal, voice memo, back of a napkin — doesn't matter.</p>
+    </div>
+    <div class="journal-prompts fade-in-up stagger">
+      <div class="prompt-card"><span class="prompt-num">1</span><span class="prompt-text">"What symptom has been hardest for me to say out loud?"</span></div>
+      <div class="prompt-card"><span class="prompt-num">2</span><span class="prompt-text">"What does feeling like myself again actually look like?"</span></div>
+      <div class="prompt-card"><span class="prompt-num">3</span><span class="prompt-text">"What do I most want to understand or reclaim by being here?"</span></div>
+      <div class="prompt-card"><span class="prompt-num">4</span><span class="prompt-text">"What's one thing I've been told to just live with — that I'm no longer willing to?"</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── AFFIRMATIONS ── -->
+<section class="affirmation-section" id="section-7">
+  <p class="affirmation-label">Truths to carry with you</p>
+  <div class="affirmation-text" id="affirmationText"></div>
+  <div class="affirmation-dots" id="affirmationDots"></div>
+</section>
+
+<!-- ── CTA ── -->
+<section class="cta" id="section-8">
+  <div class="cta-inner">
+    <div class="fade-in-up">
+      <h2>You've been doing this<br>alone long <em>enough.</em></h2>
+      <p>You've taken the first step. Here's where to go next — three places to start inside the Brainnovation Network right now.</p>
+    </div>
+    <div class="cta-cards stagger fade-in-up">
+      <a class="cta-card" href="#"><span class="cta-card-icon">🎓</span><h3>Start the Brain Health Course</h3><p>Eight modules that take you from confused and dismissed to clear, informed, and in control.</p></a>
+      <a class="cta-card" href="#"><span class="cta-card-icon">👋</span><h3>Introduce Yourself</h3><p>Drop into the Welcome thread. Tell us where you are. This community genuinely shows up for each other.</p></a>
+      <a class="cta-card" href="#"><span class="cta-card-icon">🔬</span><h3>Explore the Expert Hub</h3><p>Evidence-backed protocols, vetted resources, and specialists who actually know this territory.</p></a>
+    </div>
+    <div class="fade-in-up"><a href="#" class="btn-primary">Start Your Journey →</a></div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer class="footer-note">
+  <p>"This is the age of unapologetic wisdom. You've earned every bit of it — and you deserve the support to actually live it."</p>
+  <span>Brainnovation Network</span>
+</footer>
+
+<script>
+  // NAV DOTS
+  const sections = document.querySelectorAll('[id^="section-"]');
+  const navEl = document.getElementById('navDots');
+  sections.forEach((_,i)=>{
+    const d=document.createElement('button');
+    d.className='nav-dot';
+    d.onclick=()=>sections[i].scrollIntoView({behavior:'smooth'});
+    navEl.appendChild(d);
+  });
+  function updateNav(){
+    navEl.querySelectorAll('.nav-dot').forEach((d,i)=>{
+      const r=sections[i].getBoundingClientRect();
+      d.classList.toggle('active',r.top<window.innerHeight*.5&&r.bottom>window.innerHeight*.5);
+    });
+  }
+
+  // FADE IN
+  const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible');});},{threshold:.12});
+  document.querySelectorAll('.fade-in-up').forEach(el=>obs.observe(el));
+
+  // CHECKLIST
+  function toggleCheck(el){
+    el.classList.toggle('checked');
+    const n=document.querySelectorAll('.check-item.checked').length;
+    const t=document.querySelectorAll('.check-item').length;
+    document.getElementById('progressFill').style.width=(n/t*100)+'%';
+    document.getElementById('progressLabel').textContent=n+' of '+t+' checked';
+  }
+
+  // ACCORDION
+  function toggleAccord(h){
+    const item=h.closest('.accord-item'),open=item.classList.contains('open');
+    document.querySelectorAll('.accord-item.open').forEach(i=>i.classList.remove('open'));
+    if(!open)item.classList.add('open');
+  }
+
+  // AFFIRMATIONS
+  const affs=[
+    "You're not losing your mind. You're losing estrogen — and your brain feels every bit of it.",
+    "You don't need to shrink, hide, or hustle for your worth. Not here.",
+    "This is your midlife awakening. Not your midlife crisis.",
+    "Knowledge is power. Actually doing something with it is where it changes.",
+    "The age of unapologetic wisdom starts the moment you stop apologising for how you feel.",
+    "Come home to yourself. Your fiercest, wisest self has been waiting.",
+    "There's more. You've always known it. You were right."
+  ];
+  let cur=0;
+  const aT=document.getElementById('affirmationText');
+  const aD=document.getElementById('affirmationDots');
+  affs.forEach((_,i)=>{
+    const d=document.createElement('div');
+    d.className='affirmation-dot'+(i===0?' active':'');
+    d.onclick=()=>show(i); aD.appendChild(d);
+  });
+  function show(i){
+    aT.style.opacity=0;
+    setTimeout(()=>{
+      cur=i; aT.textContent='\u201C'+affs[i]+'\u201D'; aT.style.opacity=1;
+      document.querySelectorAll('.affirmation-dot').forEach((d,j)=>d.classList.toggle('active',j===i));
+    },380);
+  }
+  show(0);
+  setInterval(()=>show((cur+1)%affs.length),5000);
+
+  window.addEventListener('scroll',updateNav,{passive:true});
+  updateNav();
+  document.querySelector('.hero-scroll').addEventListener('click',e=>{
+    e.preventDefault(); document.getElementById('section-1').scrollIntoView({behavior:'smooth'});
+  });
+</script>
+</body>
+</html>
